@@ -31,5 +31,55 @@ class Welcome extends React.Component {
     }
 }
 
-ReactDOM.render(<div className="myDiv"><Welcome message=""/></div>, document.getElementById('content'));
+
+class ImpactRatingsHeader extends React.Component {
+    render () {
+        return <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>IR</th>
+            <th>AIR</th>
+            <th>R</th>
+            <th>HR</th>
+            <th>RBI</th>
+            <th>SB</th>
+            <th>BA</th>
+        </tr>;
+    }
+}
+
+class PlayerImpactRatings extends React.Component {
+    render () {
+        return <tr>
+            <ImpactRating rating={this.props.Rank}></ImpactRating>
+            <ImpactRating rating={this.props.Name}></ImpactRating>
+            <ImpactRating rating={this.props.impactRating}></ImpactRating>
+            <ImpactRating rating={this.props.wt3yrIR}></ImpactRating>
+            <ImpactRating rating={this.props.R}></ImpactRating>
+            <ImpactRating rating={this.props.HR}></ImpactRating>
+            <ImpactRating rating={this.props.RBI}></ImpactRating>
+            <ImpactRating rating={this.props.SB}></ImpactRating>
+            <ImpactRating rating={this.props.BA}></ImpactRating>
+        </tr>;
+    }
+}
+
+class ImpactRating extends React.Component {
+    render () {
+        return <td>{this.props.rating}</td>;
+    }
+}
+
+ReactDOM.render(
+    <table className="myDiv">
+        <thead>
+            <ImpactRatingsHeader />
+        </thead>
+        <tbody>
+            <PlayerImpactRatings Rank="1" Name="Trout, Mike" impactRating="1200" wt3yrIR="1100" R="1202" HR="789" RBI="888" SB="1280" BA="1492"></PlayerImpactRatings>
+            <PlayerImpactRatings Rank="2" Name="Goldschmidt, Paul" impactRating="1200" wt3yrIR="1100" R="1202" HR="789" RBI="888" SB="1280" BA="1492"></PlayerImpactRatings>
+            <PlayerImpactRatings Rank="3" Name="Harper, Bryce" impactRating="1200" wt3yrIR="1100" R="1202" HR="789" RBI="888" SB="1280" BA="1492"></PlayerImpactRatings>
+        </tbody>
+    </table>
+    , document.getElementById('content'));
 

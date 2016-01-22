@@ -19,7 +19,7 @@ module.exports = {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/, query: {stage: 0} },
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.css /, loader: 'style-loader!css-loader' },
             { test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
         ]
     },
